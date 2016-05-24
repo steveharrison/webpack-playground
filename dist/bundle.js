@@ -44,11 +44,14 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+
+	console.info('Hello from entry.js');
+
 	__webpack_require__(1);
 	__webpack_require__(5);
 
-	console.log('Hello world');
-	document.write('Hello world');
+	__webpack_require__(7);
 
 /***/ },
 /* 1 */
@@ -437,6 +440,15 @@
 
 	// exports
 
+
+/***/ },
+/* 7 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	var msg = 'Hello from Script 1';
+	console.info(msg);
 
 /***/ }
 /******/ ]);
