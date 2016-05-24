@@ -1,19 +1,23 @@
+var path = require('path');
+
 module.exports = {
-	entry: './src/entry.js',
+	entry: './src/entry.js', // @todo Should this be using path.resolve / path.join?
 	output: {
-		path: __dirname + '/dist',
+		path: path.resolve(__dirname, 'dist'),
 		filename: 'bundle.js'
 	},
 	module: {
 		loaders: [
 			{
-				test: /\.css$/,
-				loader: "style!css"
+				loader: "style!css",
+				test: /\.css$/
 			},
 			{
-				test: /\.js$/,
-				exclude: /node_modules/,
 				loader: 'babel-loader',
+				include: [
+					path.resolve(__dirname, 'src') // @todo Is this the best way to resolve paths?
+				],
+				test: /\.js$/,
 				query: {
 					presets: ['es2015']
 				}
